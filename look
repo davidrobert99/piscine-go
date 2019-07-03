@@ -1,4 +1,3 @@
 #! /bin/bash                                                                                                                                                    
 
-echo  "$(find -name 'a*')" "$(find -name '*z')" "$(find -name 'z*a!')" | xargs -n 1 basename 
-
+find -name 'a*' -o find -name '*z' -o find -name 'z*a!'
