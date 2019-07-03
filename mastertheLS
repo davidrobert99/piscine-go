@@ -1,3 +1,4 @@
 #! /bin/bash
 
-ls -ltc -p -m
+echo "$(ls -ltc -p -m )" | sed 's/, /,/g'
+
