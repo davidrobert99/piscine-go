@@ -2,4 +2,4 @@
 
  
 
-echo 'hello'  $(curl  https://api.github.com/users/davidrobert99 | jq '.login')
+echo "hello davidrobert99!"
