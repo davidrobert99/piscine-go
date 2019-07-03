@@ -1,3 +1,3 @@
 #! /bin/bash
 
-ls -ltc -r -p -m
+ls -ltc -p -m
