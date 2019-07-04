@@ -1,3 +1,5 @@
 #! /bin/bash
 
-echo "$(ls -1 | wc -l)"
+
+
+echo "$(find -not -path  '*./.*') "| wc -l
