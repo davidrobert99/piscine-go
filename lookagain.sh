@@ -1,4 +1,4 @@
 #! /bin/bash
 
-echo "$(ls -t *.sh)" | cut -d. -f1 
+echo "$(find -name '*.sh' -exec basename \{} .sh \; )"
 
