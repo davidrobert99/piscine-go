@@ -1,4 +1,4 @@
 #! /bin/bash
 
-echo "$(ls *.sh)" | cut -d. -f1
+echo "$(ls -t *.sh)" | cut -d. -f1 
 
