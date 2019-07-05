@@ -5,7 +5,6 @@ import "github.com/01-edu/z01"
 
 
 
-
 func PrintNbr(n int) {
 	if n == 0 {
 		z01.PrintRune(rune(48))
@@ -16,11 +15,10 @@ func PrintNbr(n int) {
 			conta++
 			aux = aux/10
 		}
-		conta--
 		vet:=make([] int, conta)
+		conta--
 		if n > 0{
-			for n%10 != 0 || n/10 > 0{
-				
+			for conta>=0{
 				vet[conta] = n%10
 				conta--
 				n = n/10
@@ -28,7 +26,6 @@ func PrintNbr(n int) {
 		}else{
 			z01.PrintRune(rune(45))
 			for conta>=0 {
-				
 				vet[conta] = -(n%10)
 				conta--
 				n = n/10
