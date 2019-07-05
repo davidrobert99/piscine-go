@@ -25,10 +25,9 @@ func PrintNbr(n int) {
 			}
 		}else{
 			z01.PrintRune(rune(45))
-			n = n*-1
-			for n%10 != 0 || n/10 > 0{
+			for conta>=0 {
 				conta--
-				vet[conta] = n%10
+				vet[conta] = -(n%10)
 				n = n/10
 			}
 		}
