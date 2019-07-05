@@ -16,18 +16,21 @@ func PrintNbr(n int) {
 			conta++
 			aux = aux/10
 		}
+		conta--
 		vet:=make([] int, conta)
 		if n > 0{
 			for n%10 != 0 || n/10 > 0{
-				conta--
+				
 				vet[conta] = n%10
+				conta--
 				n = n/10
 			}
 		}else{
 			z01.PrintRune(rune(45))
 			for conta>=0 {
-				conta--
+				
 				vet[conta] = -(n%10)
+				conta--
 				n = n/10
 			}
 		}
