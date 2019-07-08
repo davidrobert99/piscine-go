@@ -2,7 +2,7 @@ package piscine
 
 import "fmt"
 
-func Raid1a(x, y int) {
+func Raid1b(x, y int) {
 	if x > 0 {
 		limiteHorizontalsuperior := make([]rune, x)
 		limiteHorizontalinferior := make([]rune, x)
