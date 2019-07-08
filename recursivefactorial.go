@@ -1,9 +1,12 @@
 package piscine
 
-func IterativeFactorial(int nb) int {
+func RecursiveFactorial(nb int) int {
+	if nb >= 21 || nb < 0 {
+		return 0
+	}
 	if nb == 0 {
 		return 1
 	} else {
-		return nb * IterativeFactorial(nb-1)
+		return nb * RecursiveFactorial(nb-1)
 	}
 }
