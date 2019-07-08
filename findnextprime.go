@@ -9,7 +9,7 @@ func FindNextPrime(nb int) int {
 			valor = i
 			encontrou = IsPrime(i)
 			i++
-			if i < 0 {
+			if i == 9223372036854775807 {
 				return 0
 			}
 		}
