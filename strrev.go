@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	s := "Hello World!"
-	s = StrRev(s)
-	fmt.Println(s)
-}
+package piscine
 
 func StrRev(s string) string {
 	reverse := []rune(s)
