@@ -16,7 +16,7 @@ func Raid1c(x, y int) {
 		}
 
 		for i := 0; i < x; i++ {
-			if i == 0 {
+			if i == 0 || i == (x-1) {
 				limiteHorizontalinferior[i] = 'C'
 			} else {
 				limiteHorizontalinferior[i] = 'B'
