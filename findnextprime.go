@@ -1,5 +1,7 @@
 package piscine
 
+import "github.com/01-edu/z01"
+
 func FindNextPrime(nb int) int {
 	if nb > 0 {
 		encontrou := false
@@ -9,7 +11,7 @@ func FindNextPrime(nb int) int {
 			valor = i
 			encontrou = IsPrime(i)
 			i++
-			if i == 9223372036854775807 {
+			if i >= z01.MaxInt {
 				return 0
 			}
 		}
