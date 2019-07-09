@@ -1,7 +1,6 @@
 package piscine
 
 func IsPrime(nb int) bool {
-	//numerosDivisores := 0
 	if nb <= 1 {
 		return false
 	} else {
@@ -10,7 +9,7 @@ func IsPrime(nb int) bool {
 				return false
 			}
 			for i := 5; i*i < nb; i = i + 6 {
-				if nb%(i-1) == 0 || nb%(i+2) == 0 {
+				if nb%i == 0 || nb%(i+2) == 0 {
 					return false
 				}
 			}
@@ -19,14 +18,4 @@ func IsPrime(nb int) bool {
 			return true
 		}
 	}
-	/*for i := 1; i <= nb; i++ {
-		if nb%i == 0 {
-			numerosDivisores++
-		}
-	}
-	if numerosDivisores == 2 {
-		return true
-	} else {
-		return false
-	}*/
 }
