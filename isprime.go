@@ -2,7 +2,7 @@ package piscine
 
 func IsPrime(nb int) bool {
 	//numerosDivisores := 0
-	if nb <= 0 {
+	if nb <= 1 {
 		return false
 	} else {
 		if nb > 3 {
