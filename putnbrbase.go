@@ -11,8 +11,11 @@ func PrintNbrBase(nbr int, base string) {
 		aux := []rune(base)
 		if verificaRepetidos(aux) {
 			if nbr < 0 {
-				nbr = -nbr
 				z01.PrintRune('-')
+				if nbr == -9223372036854775808 {
+					fmt.Print("9223372036854775808")
+				}
+				nbr = -nbr
 			}
 			nbr1 := nbr
 			numeroDivisoes := 0
@@ -44,7 +47,7 @@ func PrintNbrBase(nbr int, base string) {
 func verificaRepetidos(vetor []rune) bool {
 	for i := 0; i < len(vetor); i++ {
 		for j := i + 1; j < len(vetor); j++ {
-			if vetor[i] == vetor[j] {
+			if vetor[i] == vetor[j] || vetor[i] == 45 || vetor[j] == 43 {
 				return false
 			}
 		}
