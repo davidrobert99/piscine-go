@@ -47,6 +47,8 @@ func Capitalize(s string) string {
 				aux[i] = aux[i] - 32
 				capitalize = false
 			}
+		} else if aux[i] >= 65 && aux[i] <= 90 && !capitalize {
+			aux[i] = aux[i] + 32
 		}
 	}
 	return string(aux)
