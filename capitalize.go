@@ -5,7 +5,7 @@ func Capitalize(s string) string {
 	letraMaiuscula := true
 	for i := 0; i < len(aux); i++ {
 		if aux[i] >= 97 && aux[i] <= 122 && !letraMaiuscula {
-			letraMaiuscula = false
+			letraMaiuscula = true
 		} else if aux[i] >= 97 && aux[i] <= 122 && letraMaiuscula {
 			aux[i] = aux[i] - 32
 			letraMaiuscula = false
