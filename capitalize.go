@@ -1,7 +1,5 @@
 package piscine
 
-import "fmt"
-
 /*func Capitalize(s string) string {
 	aux := []rune(s)
 	letraMaiuscula := true
@@ -29,15 +27,11 @@ func Capitalize(s string) string {
 	sai := true
 	for i := 0; i < len(aux); i++ {
 		if !(aux[i] >= 97 && aux[i] <= 122) && !(aux[i] >= 65 && aux[i] <= 90) && !(aux[i] >= 48 && aux[i] <= 57) {
-			fmt.Print("if")
-			fmt.Println(string(aux[i]))
 			capitalize = true
 		} else if !(aux[i] >= 97 && aux[i] <= 122) && capitalize == true {
-			fmt.Println("else if 1")
 			capitalize = false
 			sai = true
 			for j := i + 1; j < len(aux) && sai; j++ {
-				fmt.Println(string(aux[i]))
 				if aux[j] >= 97 && aux[j] <= 122 {
 					i++
 				} else if aux[j] >= 65 && aux[j] <= 90 {
@@ -49,8 +43,6 @@ func Capitalize(s string) string {
 				}
 			}
 		} else if aux[i] >= 97 && aux[i] <= 122 {
-			fmt.Println("else if 2")
-			fmt.Println(string(aux[i]))
 			if capitalize {
 				aux[i] = aux[i] - 32
 				capitalize = false
