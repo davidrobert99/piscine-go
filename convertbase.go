@@ -1,7 +1,5 @@
 package piscine
 
-import "fmt"
-
 func ConvertBase(nbr, baseFrom, baseTo string) string {
 	valor := AtoiBase(nbr, baseFrom)
 	final := PrintNbrBaseSimples(valor, baseTo)
@@ -23,7 +21,6 @@ func PrintNbrBaseSimples(nbr int, base string) string {
 		nbr1 = nbr1 / len(aux)
 		posicao++
 	}
-	fmt.Println(string(vetor))
 	final := StrRev(string(vetor))
 	return final
 }
