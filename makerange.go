@@ -8,7 +8,7 @@ func MakeRange(min, max int) []int {
 		}
 		return vetor
 	} else {
-		vetor := make([]int, 0)
+		var vetor []int
 		return vetor
 	}
 }
