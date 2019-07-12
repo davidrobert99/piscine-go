@@ -1,8 +1,10 @@
 package piscine
 
-import "strings"
+import (
+	"strings"
+)
 
 func Split(str, charset string) []string {
-	str = strings.Replace(str, charset, " ", -1)
-	return SplitWhiteSpaces(str)
+	straux := strings.Replace(str, charset, " ", -1)
+	return SplitWhiteSpaces(straux)
 }
