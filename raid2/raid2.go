@@ -34,6 +34,8 @@ func Sudoku(arguments []string) {
 			if !Solucao(board) {
 				fmt.Println("Error")
 			}
+		} else {
+			carateresCorretos = false
 		}
 	}
 	if !carateresCorretos {
