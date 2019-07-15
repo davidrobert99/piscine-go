@@ -2,15 +2,15 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 )
 
+/*
 func check(e error) {
 	if e != nil {
 		panic(e)
 	}
-}
+}*/
 
 func main() {
 	arguments := os.Args
@@ -19,8 +19,16 @@ func main() {
 	} else if len(arguments) == 1 {
 		fmt.Println("File name missing")
 	} else {
-		dat, err := ioutil.ReadFile(arguments[1])
-		check(err)
-		fmt.Println(string(dat))
+		/*
+			dat, err := ioutil.ReadFile(arguments[1])
+			check(err)
+			fmt.Println(string(dat))
+		*/
+		file, _ := os.Open(arguments[1])
+		fi, _ := file.Stat()
+		arr := make([]byte, fi.Size())
+		file.Read(arr)
+		fmt.Println(string(arr))
+		file.Close()
 	}
 }
