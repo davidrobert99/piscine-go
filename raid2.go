@@ -1,6 +1,6 @@
 package piscine
 
-/*import (
+import (
 	"fmt"
 	"os"
 )
@@ -25,6 +25,7 @@ func Sudoku() {
 		}
 		if carateresCorretos {
 			Solucao(board, 0, 0)
+
 		}
 	}
 }
@@ -63,34 +64,47 @@ func Solucao(board [9][9]int, coluna, linha int) bool {
 	if matrizCheia(board) {
 		print(board)
 		return true
-	}
-	for i := 1; i <= 9; i++ {
-		/* fmt.Print("board")
-		fmt.Println(i)
-		print(board)*/
-//fmt.Println(podeColocar(coluna, linha, i, board))
-/*if podeColocar(coluna, linha, i, board) {
-			board[linha][coluna] = i
-			//Solucao(board, coluna, linha, i+1)
+	} else {
+		print(board)
+		fmt.Println("\n")
+		for i := 1; i <= 9; i++ {
+			if podeColocar(coluna, linha, i, board) {
+				board[linha][coluna] = i
+				coluna++
+				fmt.Print("Linha: ")
+				fmt.Println(linha)
+				fmt.Print("Coluna: ")
+				fmt.Println(coluna)
+				if coluna == 8 {
+					coluna = 0
+					linha++
+				}
+				if Solucao(board, coluna, linha) {
+					return true
+				}
 
-		}
-		if matrizCheia(board) {
-			return true
-		}
-		Solucao(board, coluna+1, linha)
-		Solucao(board, coluna, linha+1)
+				board[linha][coluna] = 0
+			} else {
+				coluna++
+				fmt.Print("Linha: ")
+				fmt.Println(linha)
+				fmt.Print("Coluna: ")
+				fmt.Println(coluna)
+				if coluna == 8 {
+					coluna = 0
+					linha++
+				}
 
+				if Solucao(board, coluna, linha) {
+					return true
+				}
+			}
+		}
+		return false
 	}
-	return false
 }
 
-/*else if coluna > 8 {
-	Solucao(board, 0, linha)
-} else if linha > 8 {
-	Solucao(board, coluna, 0)
-} */
-
-/*func matrizCheia(board [9][9]int) bool {
+func matrizCheia(board [9][9]int) bool {
 	for i := 0; i < 9; i++ {
 		for j := 0; j < 9; j++ {
 			if board[i][j] == 0 {
@@ -99,4 +113,4 @@ func Solucao(board [9][9]int, coluna, linha int) bool {
 		}
 	}
 	return true
-}*/
+}
