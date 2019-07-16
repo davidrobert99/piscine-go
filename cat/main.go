@@ -6,12 +6,6 @@ import (
 	"os"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
 func main() {
 	arguments := os.Args
 	if len(arguments) == 1 {
@@ -19,8 +13,11 @@ func main() {
 		char, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Println(err.Error())
+		} else {
+			if char != "\n" {
+				fmt.Print(char)
+			}
 		}
-		fmt.Print(char)
 	} else {
 		for i := 1; i < len(arguments); i++ {
 
@@ -29,7 +26,6 @@ func main() {
 				fmt.Println(err.Error())
 				break
 			} else {
-
 				fi, erro := file.Stat()
 				if erro != nil {
 					fmt.Println(err.Error())
