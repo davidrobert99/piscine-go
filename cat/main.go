@@ -27,11 +27,13 @@ func main() {
 			file, err := os.Open(arguments[i])
 			if err != nil {
 				fmt.Println(err.Error())
+				break
 			} else {
 
 				fi, erro := file.Stat()
 				if erro != nil {
 					fmt.Println(err.Error())
+					break
 				} else {
 					arr := make([]byte, fi.Size())
 					file.Read(arr)
