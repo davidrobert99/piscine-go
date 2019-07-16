@@ -24,11 +24,16 @@ func main() {
 			check(err)
 			fmt.Println(string(dat))
 		*/
-		file, _ := os.Open(arguments[1])
-		fi, _ := file.Stat()
-		arr := make([]byte, fi.Size())
-		file.Read(arr)
-		fmt.Println(string(arr))
-		file.Close()
+		file, e := os.Open(arguments[1])
+		if e != nil {
+			fmt.Println(e.Error())
+		} else {
+			fi, _ := file.Stat()
+			arr := make([]byte, fi.Size())
+			file.Read(arr)
+			fmt.Println(string(arr))
+			file.Close()
+		}
+
 	}
 }
