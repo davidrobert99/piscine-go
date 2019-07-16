@@ -18,25 +18,35 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		char, err := reader.ReadString('\n')
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println(err.Error())
 		}
 		fmt.Print(char)
 	} else {
 		for i := 1; i < len(arguments); i++ {
 
-			/*
-				dat, err := ioutil.ReadFile(arguments[i])
-				check(err)
-				fmt.Println(string(dat))
-				fmt.Println("")
-			*/
-			file, _ := os.Open(arguments[i])
-			fi, _ := file.Stat()
-			arr := make([]byte, fi.Size())
-			file.Read(arr)
-			fmt.Println(string(arr))
-			file.Close()
+			file, err := os.Open(arguments[i])
+			if err != nil {
+				fmt.Println(err.Error())
+			} else {
 
+				fi, erro := file.Stat()
+				if erro != nil {
+					fmt.Println(err.Error())
+				} else {
+					arr := make([]byte, fi.Size())
+					file.Read(arr)
+					fmt.Println(string(arr))
+					file.Close()
+				}
+
+			}
 		}
 	}
 }
+
+/*
+	dat, err := ioutil.ReadFile(arguments[i])
+	check(err)
+	fmt.Println(string(dat))
+	fmt.Println("")
+*/
