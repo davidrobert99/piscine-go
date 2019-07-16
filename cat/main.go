@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -15,7 +16,7 @@ func main() {
 			fmt.Println(err.Error())
 		} else {
 			if char != "\n" {
-				fmt.Print(char)
+				fmt.Print(strings.Replace(char, "\n", "", -1))
 			}
 		}
 	} else {
