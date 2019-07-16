@@ -10,7 +10,7 @@ import (
 func main() {
 	arguments := os.Args
 	if len(arguments) == 1 {
-		reader := bufio.NewReader(os.Stdin)
+		/*reader := bufio.NewReader(os.Stdin)
 		char, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Println(err.Error())
@@ -18,7 +18,10 @@ func main() {
 			if char != "\n" {
 				fmt.Print(strings.Replace(char, "\n", "", -1))
 			}
-		}
+		}*/
+		scanner := bufio.NewScanner(os.Stdin)
+		scanner.Scan()
+		fmt.Print(strings.Replace(scanner.Text(), "\n", "", -1))
 	} else {
 		for i := 1; i < len(arguments); i++ {
 
