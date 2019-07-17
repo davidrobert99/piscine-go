@@ -3,13 +3,40 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
 	arguments := os.Args
 	if len(arguments) == 4 {
-		if IsNumeric(arguments[1]) && IsNumeric(arguments[3]) {
-
+		num1, er := strconv.Atoi(arguments[1])
+		num2, er2 := strconv.Atoi(arguments[3])
+		if er != nil || er2 != nil {
+			fmt.Println(0)
+		}
+		if arguments[2] == "+" {
+			result := num1 + num2
+			fmt.Println(result)
+		} else if arguments[2] == "-" {
+			result := num1 - num2
+			fmt.Println(result)
+		} else if arguments[2] == "*" {
+			result := num1 * num2
+			fmt.Println(result)
+		} else if arguments[2] == "%" {
+			if num2 != 0 {
+				result := num1 % num2
+				fmt.Println(result)
+			} else {
+				fmt.Println("No Modulo by 0")
+			}
+		} else if arguments[2] == "/" {
+			if num2 != 0 {
+				result := num1 / num2
+				fmt.Println(result)
+			} else {
+				fmt.Println("No division by 0")
+			}
 		} else {
 			fmt.Println(0)
 		}
