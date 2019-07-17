@@ -15,7 +15,7 @@ func menorParaMaior(f func(a, b int) int, tab []int) bool {
 
 func maiorParaMenor(f func(a, b int) int, tab []int) bool {
 	for i := len(tab) - 1; i > 1; i-- {
-		if f(tab[i-1], tab[i]) >= 0 {
+		if f(tab[i], tab[i-1]) >= 0 {
 			return false
 		}
 	}
