@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Pilot struct {
 	Name     string
 	Life     float32
@@ -9,7 +11,7 @@ type Pilot struct {
 
 const AIRCRAFT1 = "1"
 
-func  main(){
+func main() {
 	var donnie Pilot
 	donnie.Name = "Donnie"
 	donnie.Life = 100.0
