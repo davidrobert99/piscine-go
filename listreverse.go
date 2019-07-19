@@ -1,12 +1,12 @@
 package piscine
 
 func ListReverse(l *List) {
-	auxiliar := l
-	if auxiliar.Head.Next != nil {
+	auxiliar := l.Head
+	if auxiliar.Next != nil {
 		var vetor []interface{}
-		for auxiliar.Head != nil {
-			vetor = append(vetor, auxiliar.Head.Data)
-			auxiliar.Head = auxiliar.Head.Next
+		for auxiliar != nil {
+			vetor = append(vetor, auxiliar.Data)
+			auxiliar = auxiliar.Next
 		}
 		link := &List{}
 		link.Head = nil
