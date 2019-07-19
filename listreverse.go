@@ -1,8 +1,6 @@
 package piscine
 
-import "fmt"
-
-func ListReverse(l *List) {
+/*func ListReverse(l *List) {
 	auxiliar := l
 	if ListSize(l) > 1 {
 		var vetor []interface{}
@@ -21,5 +19,15 @@ func ListReverse(l *List) {
 
 	} else {
 		fmt.Print("ahha")
+	}
+}*/
+
+func ListReverse(l *List) {
+	if ListSize(l) > 1 {
+		if ListSize(l) == 2 {
+
+		} else {
+
+		}
 	}
 }
