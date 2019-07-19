@@ -11,6 +11,7 @@ func PrintStr(str string) {
 	for _, s := range arrayRune {
 		z01.PrintRune(s)
 	}
+	z01.PrintRune('\n')
 }
 
 func CloseDoor(ptrDoor *Door) {
