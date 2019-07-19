@@ -14,9 +14,9 @@ func comcheck() {
 		}
 	}
 	if boolean {
-		fmt.Print("Alert!!!")
+		fmt.Println("Alert!!!")
 	}
-	fmt.Print("\n")
+
 }
 
 func main(){
