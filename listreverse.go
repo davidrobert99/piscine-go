@@ -14,6 +14,6 @@ func ListReverse(l *List) {
 		for i := len(vetor) - 1; i >= 0; i-- {
 			ListPushBack(link, vetor[i])
 		}
-		l = link
+		*l = *link
 	}
 }
