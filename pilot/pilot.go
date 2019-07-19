@@ -7,7 +7,7 @@ type Pilot struct {
 	Aircraft string
 }
 
-const AIRCRAFT1 = ""
+const AIRCRAFT1 = "1"
 
 func  main(){
 	var donnie Pilot
