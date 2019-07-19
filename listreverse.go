@@ -9,6 +9,7 @@ func ListReverse(l *List) {
 		for auxiliar.Head != nil {
 			vetor = append(vetor, auxiliar.Head.Data)
 			auxiliar.Head = auxiliar.Head.Next
+			fmt.Println(auxiliar)
 		}
 		link := &List{}
 		link.Head = nil
