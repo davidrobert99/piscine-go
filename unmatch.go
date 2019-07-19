@@ -1,15 +1,21 @@
 package piscine
 
-//Dar sort e verificar 2 a 2
+import "sort"
+
 func Unmatch(arr []int) int {
-	for i := range arr {
-		if !verifica(arr, i, arr[i]) {
+	sort.Ints(arr)
+	for i := 0; i < len(arr); i += 2 {
+		if i == len(arr)-1 {
+			return arr[i]
+		}
+		if arr[i] != arr[i+1] {
 			return arr[i]
 		}
 	}
 	return -1
 }
 
+/*
 func verifica(arr []int, posicao, numero int) bool {
 	for i := range arr {
 		if i != posicao {
@@ -19,4 +25,4 @@ func verifica(arr []int, posicao, numero int) bool {
 		}
 	}
 	return false
-}
+}*/
