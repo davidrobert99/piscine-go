@@ -1,5 +1,7 @@
 package piscine
 
+import "fmt"
+
 func ListReverse(l *List) {
 	auxiliar := l
 	if ListSize(l) > 1 {
@@ -15,5 +17,8 @@ func ListReverse(l *List) {
 			ListPushBack(link, vetor[i])
 		}
 		*l = *link
+
+	} else {
+		fmt.Print("ahha")
 	}
 }
