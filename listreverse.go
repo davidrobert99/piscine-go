@@ -36,6 +36,9 @@ func reverse ( l *List ){
 	anterior := nil
 	seguinte := nil
 	atual := l.Head
+	auxiliar := l.Head
+	l.head = l.tail 
+	l.tail = auxiliar
 	for atual!= nil{
 		seguinte = atual.next
 		atual.next = anterior
