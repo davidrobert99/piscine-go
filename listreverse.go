@@ -31,3 +31,17 @@ func ListReverse(l *List) {
 		}
 	}
 }
+
+func reverse ( l *List ){
+	anterior := nil
+	seguinte := nil
+	atual := l.Head
+	for atual!= nil{
+		seguinte = atual.next
+		atual.next = anterior
+		anterior = atual
+		atual = next
+	}
+
+}  
+
