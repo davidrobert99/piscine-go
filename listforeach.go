@@ -1,13 +1,13 @@
 package piscine
 
 func ListForEach(l *List, f func(*NodeL)) {
-	if l.Head != nil {
-		copia := l.Head
-		for copia != nil {
-			f(copia)
-			copia = copia.Next
-		}
+
+	copia := l.Head
+	for copia != nil {
+		f(copia)
+		copia = copia.Next
 	}
+
 }
 
 func Add2_node(node *NodeL) {
