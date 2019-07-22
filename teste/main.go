@@ -139,11 +139,167 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 }
 
 func main() {
-	var link *piscine.NodeI
-	var link2 *piscine.NodeI
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	fmt.Println(root.Left.Data)
+	fmt.Println(root.Data)
+	fmt.Println(root.Right.Left.Data)
+	fmt.Println(root.Right.Data)
+}
 
-	link2 = listPushBack(link2, -2)
-	link2 = listPushBack(link2, 9)
+package main
 
-	PrintList(piscine.SortedListMerge(link2, link))
+import (
+       "fmt"
+       piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	piscine.BTreeApplyInorder(root, fmt.Println)
+
+}
+
+package main
+
+import (
+       "fmt"
+       piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	piscine.BTreeApplyInorder(root, fmt.Println)
+
+}
+
+package main
+
+import (
+	"fmt"
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	piscine.BTreeApplyPreorder(root, fmt.Println)
+
+}
+
+
+package main
+
+import (
+	"fmt"
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	selected := piscine.BTreeSearchItem(root, "7")
+	fmt.Print("Item selected -> ")
+	if selected != nil {
+		fmt.Println(selected.Data)
+	} else {
+		fmt.Println("nil")
+	}
+
+	fmt.Print("Parent of selected item -> ")
+	if selected.Parent != nil {
+		fmt.Println(selected.Parent.Data)
+	} else {
+		fmt.Println("nil")
+	}
+
+	fmt.Print("Left child of selected item -> ")
+	if selected.Left != nil {
+		fmt.Println(selected.Left.Data)
+	} else {
+		fmt.Println("nil")
+	}
+
+	fmt.Print("Right child of selected item -> ")
+	if selected.Right != nil {
+		fmt.Println(selected.Right.Data)
+	} else {
+		fmt.Println("nil")
+	}
+}
+
+package main
+
+import (
+	"fmt"
+
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	fmt.Println(piscine.BTreeLevelCount(root))
+}
+
+
+package main
+
+import (
+	"fmt"
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	fmt.Println(piscine.BTreeIsBinary(root))
+}
+
+package main
+
+import (
+	"fmt"
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	piscine.BTreeApplyByLevel(root, fmt.Println)
+}
+
+package main
+
+import (
+	"fmt"
+
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	max := piscine.BTreeMax(root)
+	fmt.Println(max.Data)
 }
