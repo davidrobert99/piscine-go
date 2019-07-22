@@ -105,7 +105,7 @@ func main() {
 	fmt.Println("previous output:")
 	fmt.Print(out)
 
-}*/
+}
 
 package main
 
@@ -136,7 +136,15 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 	}
 	iterator.Next = n
 	return l
-}
+}*/
+
+package main
+
+import (
+	"fmt"
+
+	piscine ".."
+)
 
 func main() {
 	root := &piscine.TreeNode{Data: "4"}
@@ -149,6 +157,7 @@ func main() {
 	fmt.Println(root.Right.Data)
 }
 
+/*
 package main
 
 import (
@@ -302,4 +311,4 @@ func main() {
 	piscine.BTreeInsertData(root, "5")
 	max := piscine.BTreeMax(root)
 	fmt.Println(max.Data)
-}
+} */
