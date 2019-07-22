@@ -12,9 +12,9 @@ func ListPushBackNode(node *NodeI, data int) {
 		node = nil
 	} else {
 		copia := node
-		for copia.Next != nil {
+		for copia != nil {
 			copia = copia.Next
 		}
-		copia.Next = n
+		copia = n
 	}
 }
