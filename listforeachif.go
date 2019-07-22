@@ -31,13 +31,12 @@ func IsNotNumeric_node(node *NodeL) bool {
 }
 
 func ListForEachIf(l *List, f func(*NodeL), cond func(*NodeL) bool) {
-	if l.Head != nil {
-		copia := l.Head
-		for copia != nil {
-			if cond(copia) {
-				f(copia)
-			}
-			copia = copia.Next
+	copia := l.Head
+	for copia != nil {
+		if cond(copia) {
+			f(copia)
 		}
+		copia = copia.Next
 	}
+
 }
