@@ -6,15 +6,16 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 	return l
 }
 
-func ListPushBackNode(node *NodeI, data int) {
-	n := &NodeI{Data: data, Next: nil}
-	if node == nil {
-		node = nil
-	} else {
-		copia := node
-		for copia != nil {
-			copia = copia.Next
-		}
-		copia = n
+func ListPushBackNode(l *NodeI, data int) *NodeI {
+	n := &NodeI{Data: data}
+
+	if l == nil {
+		return n
 	}
+	iterator := l
+	for iterator.Next != nil {
+		iterator = iterator.Next
+	}
+	iterator.Next = n
+	return l
 }
