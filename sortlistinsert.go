@@ -27,11 +27,11 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 	if l == nil {
 		return n
 	} else {
-		iterator := l
-		if data_ref < iterator.Data {
-			n.Next = iterator
+		if data_ref < l.Data {
+			n.Next = l
 			l = n
 		} else {
+			iterator := l
 			anterior := &NodeI{}
 			for iterator != nil && iterator.Data < data_ref {
 				anterior = iterator
