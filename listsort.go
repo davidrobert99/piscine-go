@@ -1,5 +1,7 @@
 package piscine
 
+import "sort"
+
 type NodeI struct {
 	Data int
 	Next *NodeI
@@ -12,7 +14,8 @@ func ListSort(l *NodeI) *NodeI {
 		numbers = append(numbers, percorre.Data)
 		percorre = percorre.Next
 	}
-	SortIntegerTable(numbers)
+	//SortIntegerTable(numbers)
+	sort.Ints(numbers)
 	l = nil
 	for i := 0; i < len(numbers); i++ {
 		l = listPushBack(l, numbers[i])
