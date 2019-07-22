@@ -16,6 +16,7 @@ func ListRemoveIf(l *List, data_ref interface{}) {
 						if l.Head.Data == data_ref {
 							l.Head = l.Head.Next
 						}
+						return
 					}
 				}
 				percorre = percorre.Next
@@ -25,7 +26,9 @@ func ListRemoveIf(l *List, data_ref interface{}) {
 			}
 		}
 	}
-
+	if l.Head.Data == data_ref {
+		l.Head = l.Head.Next
+	}
 }
 
 func PrintList(l *List) {
