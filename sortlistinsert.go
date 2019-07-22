@@ -21,19 +21,25 @@ func ListPushBackNode(l *NodeI, data int) *NodeI {
 } */
 
 // a lista esta ordenada, basta verificar os elementos
+
 func SortListInsert(l *NodeI, data_ref int) *NodeI {
 	n := &NodeI{Data: data_ref, Next: nil}
 	if l == nil {
 		return n
 	} else {
 		iterator := l
-		anterior := &NodeI{}
-		for iterator != nil && iterator.Data < data_ref {
-			anterior = iterator
-			iterator = iterator.Next
+		if data_ref < iterator.Data {
+			n.Next = iterator
+			l = n
+		} else {
+			anterior := &NodeI{}
+			for iterator != nil && iterator.Data < data_ref {
+				anterior = iterator
+				iterator = iterator.Next
+			}
+			anterior.Next = n
+			n.Next = iterator
 		}
-		anterior.Next = n
-		n.Next = iterator
 		return l
 	}
 }
