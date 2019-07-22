@@ -7,7 +7,7 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 }
 
 func ListPushBackNode(l *NodeI, data int) *NodeI {
-	n := &NodeI{Data: data}
+	n := &NodeI{Data: data, Next: nil}
 
 	if l == nil {
 		return n
@@ -19,3 +19,5 @@ func ListPushBackNode(l *NodeI, data int) *NodeI {
 	iterator.Next = n
 	return l
 }
+
+// a lista esta ordenada, basta verificar os elementos
