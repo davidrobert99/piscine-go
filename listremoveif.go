@@ -3,6 +3,9 @@ package piscine
 import "fmt"
 
 func ListRemoveIf(l *List, data_ref interface{}) {
+	for l.Head != nil && l.Head.Data == data_ref {
+		l.Head = l.Head.Next
+	}
 	if l.Head != nil {
 		percorre := l.Head
 		anterior := l.Head
@@ -25,8 +28,9 @@ func ListRemoveIf(l *List, data_ref interface{}) {
 				percorre = percorre.Next
 			}
 		}
-	}
-	if l.Head.Data == data_ref {
+	} else if l.Head == nil {
+		return
+	} else if l.Head.Data == data_ref {
 		l.Head = l.Head.Next
 	}
 }
