@@ -1,4 +1,4 @@
-package main
+//package main
 
 /*
 type List = piscine.List
@@ -43,20 +43,6 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 	return l
 }
 
-func main() {
-	var link *piscine.NodeI
-	var link2 *piscine.NodeI
-
-	link = listPushBack(link, 3)
-	link = listPushBack(link, 5)
-	link = listPushBack(link, 7)
-
-	link2 = listPushBack(link2, -2)
-	link2 = listPushBack(link2, 9)
-
-	PrintList2(piscine.SortedListMerge(link2, link))
-}*/
-
 import (
 	"fmt"
 
@@ -64,7 +50,100 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 1, 2, 3, 4, 1}
-	unmatch := piscine.Unmatch(arr)
-	fmt.Println(unmatch)
+	link := &piscine.List{}
+
+	piscine.ListPushBack(link, 1)
+	piscine.ListPushBack(link, 2)
+	piscine.ListPushBack(link, 3)
+	piscine.ListPushBack(link, 4)
+
+	piscine.ListReverse(link)
+
+	it := link.Head
+
+	for it != nil {
+		fmt.Println(it.Data)
+		it = it.Next
+	}
+
+	fmt.Println("Tail", link.Tail)
+	fmt.Println("Head", link.Head)
+
+	//PrintList2(piscine.SortedListMerge(link2, link))
+}
+
+
+
+import (
+	"bytes"
+	"fmt"
+	"io"
+	"os"
+)
+
+func main() {
+	old := os.Stdout // keep backup of the real stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	print()
+
+	outC := make(chan string)
+	// copy the output in a separate goroutine so printing can't block indefinitely
+	go func() {
+		var buf bytes.Buffer
+		io.Copy(&buf, r)
+		outC <- buf.String()
+	}()
+
+	// back to normal state
+	w.Close()
+	os.Stdout = old // restoring the real stdout
+	out := <-outC
+
+	// reading our temp stdout
+	fmt.Println("previous output:")
+	fmt.Print(out)
+
+}*/
+
+package main
+
+import (
+	"fmt"
+
+	piscine ".."
+)
+
+func PrintList(l *piscine.NodeI) {
+	it := l
+	for it != nil {
+		fmt.Print(it.Data, " -> ")
+		it = it.Next
+	}
+	fmt.Print(nil, "\n")
+}
+
+func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
+	n := &piscine.NodeI{Data: data}
+
+	if l == nil {
+		return n
+	}
+	iterator := l
+	for iterator.Next != nil {
+		iterator = iterator.Next
+	}
+	iterator.Next = n
+	return l
+}
+
+func main() {
+	var link *piscine.NodeI
+	var link2 *piscine.NodeI
+
+	link2 = listPushBack(link2, -2)
+	link2 = listPushBack(link2, 9)
+
+	PrintList(piscine.SortedListMerge(link2, link))
 }
