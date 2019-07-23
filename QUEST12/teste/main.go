@@ -49,6 +49,21 @@ import (
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	piscine ".."
 )
 
@@ -192,7 +207,7 @@ func main() {
 
 }
 
-*/
+
 package main
 
 import (
@@ -209,12 +224,26 @@ func main() {
 
 }
 
-/*
 package main
 
 import (
-	"fmt"
 	piscine ".."
+	"fmt"
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	piscine.BTreeApplyPreorder(root, fmt.Println)
+
+}
+package main
+
+import (
+	piscine ".."
+	"fmt"
 )
 
 func main() {
@@ -268,12 +297,11 @@ func main() {
 	fmt.Println(piscine.BTreeLevelCount(root))
 }
 
-
 package main
 
 import (
-	"fmt"
 	piscine ".."
+	"fmt"
 )
 
 func main() {
@@ -287,8 +315,8 @@ func main() {
 package main
 
 import (
-	"fmt"
 	piscine ".."
+	"fmt"
 )
 
 func main() {
@@ -314,4 +342,60 @@ func main() {
 	piscine.BTreeInsertData(root, "5")
 	max := piscine.BTreeMax(root)
 	fmt.Println(max.Data)
-} */
+}
+
+package main
+
+import (
+	"fmt"
+
+	piscine ".."
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	min := piscine.BTreeMin(root)
+	fmt.Println(min.Data)
+}
+
+package main
+
+import (
+	piscine ".."
+	"fmt"
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	node := piscine.BTreeSearchItem(root, "1")
+	replacement := &piscine.TreeNode{Data: "3"}
+	root = piscine.BTreeTransplant(root, node, replacement)
+	piscine.BTreeApplyInorder(root, fmt.Println)
+}
+
+*/
+package main
+
+import (
+	piscine ".."
+	"fmt"
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	node := piscine.BTreeSearchItem(root, "4")
+	fmt.Println("Before delete:")
+	piscine.BTreeApplyInorder(root, fmt.Println)
+	root = piscine.BTreeDeleteNode(root, node)
+	fmt.Println("After delete:")
+	piscine.BTreeApplyInorder(root, fmt.Println)
+}
