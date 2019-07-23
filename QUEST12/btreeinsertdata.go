@@ -182,14 +182,22 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	}
 	percorre := root
 	if root.Data == node.Data {
-		root = root.Left
-		auxiliar := root.Left
-		if auxiliar != nil {
-			for auxiliar.Right != nil {
-				auxiliar = auxiliar.Right
+		if root.Right != nil {
+			if root.Left != nil {
+				root = root.Left
+				auxiliar := root.Left
+				if auxiliar != nil {
+					for auxiliar.Right != nil {
+						auxiliar = auxiliar.Right
+					}
+				}
+				root.Right = percorre.Right
+			} else {
+				root = root.Right
 			}
+		} else {
+			root = root.Left
 		}
-		root.Right = percorre.Right
 	} else {
 		for percorre != nil {
 			if percorre.Data == node.Data {
