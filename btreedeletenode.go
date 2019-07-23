@@ -29,26 +29,35 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 					percorre = percorre.Parent
 					if percorre.Left.Data == node.Data {
 						auxiliarApagar := percorre.Left //para apagar
-						percorre.Left = percorre.Left.Left
-						auxiliar := percorre.Left
-						if auxiliar != nil {
-							for auxiliar.Right != nil {
-								auxiliar = auxiliar.Right
+						if percorre.Left.Left != nil {
+							percorre.Left = percorre.Left.Left
+							auxiliar := percorre.Left
+							if auxiliar != nil {
+								for auxiliar.Right != nil {
+									auxiliar = auxiliar.Right
+								}
 							}
+							auxiliar = auxiliarApagar.Right
+							auxiliarApagar = auxiliar
+						} else {
+							percorre.Left = percorre.Left.Right
 						}
-						auxiliar = auxiliarApagar.Right
-						auxiliarApagar = auxiliar
+
 					} else {
 						auxiliarApagar := percorre.Right //para apagar
-						percorre.Right = percorre.Right.Left
-						auxiliar := percorre.Right
-						if auxiliar != nil {
-							for auxiliar.Right != nil {
-								auxiliar = auxiliar.Right
+						if percorre.Right.Left != nil {
+							percorre.Right = percorre.Right.Left
+							auxiliar := percorre.Right
+							if auxiliar != nil {
+								for auxiliar.Right != nil {
+									auxiliar = auxiliar.Right
+								}
 							}
+							auxiliar = auxiliarApagar.Right
+							auxiliarApagar = auxiliar
+						} else {
+							percorre = percorre.Left.Left
 						}
-						auxiliar = auxiliarApagar.Right
-						auxiliarApagar = auxiliar
 					}
 				}
 			}
