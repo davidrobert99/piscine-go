@@ -37,6 +37,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							}
 						}
 						auxiliar = auxiliarApagar.Right
+						auxiliarApagar = auxiliar
 					} else {
 						auxiliarApagar := percorre.Right //para apagar
 						percorre.Right = percorre.Right.Left
@@ -47,6 +48,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							}
 						}
 						auxiliar = auxiliarApagar.Right
+						auxiliarApagar = auxiliar
 					}
 				}
 			}
