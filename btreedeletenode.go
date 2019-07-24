@@ -1,7 +1,6 @@
 package piscine
 
-import "fmt"
-
+/*
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -21,12 +20,12 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
-								fmt.Println("-------------------- entrou -----------------------")
 								auxiliar.Right = auxiliarApagar.Right
 							}
 
 						} else {
 							percorre.Left = percorre.Left.Right
+							percorre.Left.Right.Parent = percorre.Left//////////////////////////////
 						}
 						auxiliarApagar = nil
 					} else { // se é o no da direita para apagar
@@ -43,6 +42,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							}
 						} else {
 							percorre.Right = percorre.Right.Right
+							percorre.Right.Right.Parent = percorre.Right
 						}
 						auxiliarApagar = nil
 					}
@@ -52,7 +52,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						if root.Left != nil { //se à esquerda nao é nil
 							root = root.Left
 							auxiliar := root.Left
-							if auxiliar != nil {
+							if auxiliar.Right != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
@@ -76,8 +76,8 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	}
 	return root
 }
+*/
 
-/*
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -85,7 +85,43 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 		percorre := root
 		for percorre != nil {
 			if percorre.Data == node.Data {
-
+				if percorre.Left != nil {
+					if percorre.Right != nil {
+						if percorre.Parent.Right.Data == percorre.Data {
+							percorre = percorre.Parent
+							percorre.Right = percorre.Right.Left
+							percorre.Right.Parent = percorre
+						} else {
+							percorre = percorre.Parent
+							percorre.Left = percorre.Left.Left
+							percorre.Left.Parent = percorre
+						}
+					} else {
+						if percorre.Left.Right != nil {
+							auxiliar := percorre.Left.Right
+							for auxiliar.Right.Right != nil {
+								auxiliar = auxiliar.Right
+							}
+							percorre.Data = auxiliar.Right.Data
+							auxiliar.Right = nil
+						} else {
+							percorre.Data = percorre.Left.Data
+							percorre.Left = nil
+						}
+					}
+				} else if percorre.Right != nil {
+					if percorre.Parent.Right.Data == percorre.Data {
+						percorre = percorre.Parent
+						percorre.Right = percorre.Right.Right
+						percorre.Right.Parent = percorre
+					} else {
+						percorre = percorre.Parent
+						percorre.Left = percorre.Left.Right
+						percorre.Left.Parent = percorre
+					}
+				} else {
+					percorre = nil
+				}
 			}
 			if node.Data < percorre.Data {
 				percorre = percorre.Left
@@ -94,4 +130,5 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 			}
 		}
 	}
-}*/
+	return root
+}
