@@ -9,7 +9,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 			if percorre.Data == node.Data {
 				if percorre.Parent != nil { // se nao é a raiz
 					percorre = percorre.Parent
-					if percorre.Left.Data == node.Data {
+					if percorre.Left.Data == node.Data { // se é o no da esquerda para apagar
 						auxiliarApagar := percorre.Left //para apagar
 						if percorre.Left.Left != nil {
 							percorre.Left = percorre.Left.Left
@@ -20,12 +20,14 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 								}
 							}
 							auxiliar = auxiliarApagar.Right
-							auxiliarApagar = nil
+							auxiliarApagar.Left = nil
+							auxiliarApagar.Right = nil
+							auxiliarApagar.Parent = nil
 						} else {
 							percorre.Left = percorre.Left.Right
 						}
 
-					} else {
+					} else { // se é o no da direita para apagar
 						auxiliarApagar := percorre.Right //para apagar
 						if percorre.Right.Left != nil {
 							percorre.Right = percorre.Right.Left
@@ -36,14 +38,16 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 								}
 							}
 							auxiliar = auxiliarApagar.Right
-							auxiliarApagar = nil
+							auxiliarApagar.Left = nil
+							auxiliarApagar.Right = nil
+							auxiliarApagar.Parent = nil
 						} else {
 							percorre = percorre.Left.Left
 						}
 					}
 				} else { // se e a raiz
-					if root.Right != nil {
-						if root.Left != nil {
+					if root.Right != nil { //se à direita nao é nil
+						if root.Left != nil { //se à esquerda nao é nil
 							root = root.Left
 							auxiliar := root.Left
 							if auxiliar != nil {
