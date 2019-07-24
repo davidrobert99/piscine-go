@@ -59,9 +59,9 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
-								auxiliar.Right = guardaDireita
-								auxiliar.Right.Parent = auxiliar
 							}
+							auxiliar.Right = guardaDireita
+							auxiliar.Right.Parent = auxiliar
 						} else {
 							root = root.Right
 							root.Parent = nil
