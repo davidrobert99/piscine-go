@@ -46,6 +46,51 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 import (
 	"fmt"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	piscine ".."
 )
 
@@ -136,7 +181,7 @@ func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
 	}
 	iterator.Next = n
 	return l
-}*/
+}
 
 package main
 
@@ -311,4 +356,45 @@ func main() {
 	piscine.BTreeInsertData(root, "5")
 	max := piscine.BTreeMax(root)
 	fmt.Println(max.Data)
-} */
+}
+
+
+package main
+
+import (
+	piscine ".."
+)
+
+func main() {
+	piscine.EightQueens()
+}*/
+
+package main
+
+import (
+	piscine ".."
+	"fmt"
+)
+
+func main() {
+	root := &piscine.TreeNode{Data: "a"}
+	piscine.BTreeInsertData(root, "d")
+	piscine.BTreeInsertData(root, "f")
+	piscine.BTreeInsertData(root, "e")
+	piscine.BTreeInsertData(root, "g")
+	piscine.BTreeInsertData(root, "c")
+	piscine.BTreeInsertData(root, "b")
+	piscine.BTreeInsertData(root, "z")
+	piscine.BTreeInsertData(root, "t")
+	node := piscine.BTreeSearchItem(root, "d")
+	//node2 := piscine.BTreeSearchItem(root, "t")
+	fmt.Println("Before delete:")
+	piscine.BTreeApplyByLevel(root, fmt.Println)
+	root = piscine.BTreeDeleteNode(root, node)
+	//root = piscine.BTreeDeleteNode(root, node2)
+	fmt.Println("After delete:")
+	fmt.Println("-----------------------------------------------")
+	piscine.BTreeApplyByLevel(root, fmt.Println)
+	fmt.Println("-----------------------------------------------")
+	fmt.Print(root.Right.Right.Parent)
+}
