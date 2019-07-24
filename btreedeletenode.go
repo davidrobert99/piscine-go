@@ -26,7 +26,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						} else {
 							percorre.Left = percorre.Left.Right
 						}
-
+						auxiliarApagar = nil
 					} else { // se é o no da direita para apagar
 						auxiliarApagar := percorre.Right //para apagar
 						if percorre.Right.Left != nil {
@@ -44,6 +44,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						} else {
 							percorre = percorre.Left.Left
 						}
+						auxiliarApagar = nil
 					}
 				} else { // se e a raiz
 					if root.Right != nil { //se à direita nao é nil
