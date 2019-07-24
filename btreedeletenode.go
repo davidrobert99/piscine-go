@@ -1,5 +1,7 @@
 package piscine
 
+import "fmt"
+
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -15,10 +17,11 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							percorre.Left = percorre.Left.Left
 							auxiliar := percorre.Left
 							auxiliar.Parent = percorre
-							if auxiliar.Right != nil && auxiliarApagar.Right != nil {
+							if auxiliarApagar.Right != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
+								fmt.Println("-------------------- entrou -----------------------")
 								auxiliar.Right = auxiliarApagar.Right
 							}
 
@@ -32,7 +35,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							percorre.Right = percorre.Right.Left
 							auxiliar := percorre.Right
 							auxiliar.Parent = percorre
-							if auxiliar.Right != nil && auxiliarApagar.Right != nil {
+							if auxiliarApagar.Right != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
