@@ -1,5 +1,7 @@
 package piscine
 
+import "fmt"
+
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -9,7 +11,10 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 			if percorre.Data == node.Data {
 				if percorre.Parent != nil { // se nao é a raiz
 					percorre = percorre.Parent
-					if percorre.Left.Data == node.Data { // se é o no da esquerda para apagar
+					fmt.Print("Percorre: ")
+					fmt.Print(percorre)
+					fmt.Println(node)
+					if percorre.Left != nil && percorre.Left.Data == node.Data { // se é o no da esquerda para apagar
 						auxiliarApagar := percorre.Left //para apagar
 						if percorre.Left.Left != nil {
 							percorre.Left = percorre.Left.Left
