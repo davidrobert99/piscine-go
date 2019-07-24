@@ -3,29 +3,11 @@ package piscine
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
-	}
-	percorre := root
-	if root.Data == node.Data {
-		if root.Right != nil {
-			if root.Left != nil {
-				root = root.Left
-				auxiliar := root.Left
-				if auxiliar != nil {
-					for auxiliar.Right != nil {
-						auxiliar = auxiliar.Right
-					}
-				}
-				root.Right = percorre.Right
-			} else {
-				root = root.Right
-			}
-		} else {
-			root = root.Left
-		}
 	} else {
+		percorre := root
 		for percorre != nil {
 			if percorre.Data == node.Data {
-				if percorre.Parent != nil {
+				if percorre.Parent != nil { // se nao é a raiz
 					percorre = percorre.Parent
 					if percorre.Left.Data == node.Data {
 						auxiliarApagar := percorre.Left //para apagar
@@ -58,6 +40,23 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						} else {
 							percorre = percorre.Left.Left
 						}
+					}
+				} else { // se e a raiz
+					if root.Right != nil {
+						if root.Left != nil {
+							root = root.Left
+							auxiliar := root.Left
+							if auxiliar != nil {
+								for auxiliar.Right != nil {
+									auxiliar = auxiliar.Right
+								}
+							}
+							root.Right = percorre.Right
+						} else {
+							root = root.Right
+						}
+					} else {
+						root = root.Left
 					}
 				}
 			}
