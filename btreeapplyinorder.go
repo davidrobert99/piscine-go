@@ -6,5 +6,7 @@ func BTreeApplyInorder(root *TreeNode, f func(...interface{}) (int, error)) {
 		BTreeApplyInorder(auxiliar.Left, f)
 		f(auxiliar.Data)
 		BTreeApplyInorder(auxiliar.Right, f)
+	} else {
+		//f(auxiliar)
 	}
 }
