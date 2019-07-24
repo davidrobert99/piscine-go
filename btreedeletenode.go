@@ -57,6 +57,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 								}
 							}
 							root.Right = percorre.Right
+							root.Parent = nil
 						} else {
 							root = root.Right
 						}
