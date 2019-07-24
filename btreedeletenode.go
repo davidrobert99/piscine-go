@@ -51,20 +51,24 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 				} else { // se e a raiz
 					if root.Right != nil { //se à direita nao é nil
 						if root.Left != nil { //se à esquerda nao é nil
+							guardaDireita := root.Right
 							root = root.Left
-							auxiliar := root.Left
-							if auxiliar.Right != nil {
+							root.Parent = nil
+							auxiliar := root.Right
+							if auxiliar != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
+								auxiliar.Right = guardaDireita
+								auxiliar.Right.Parent = auxiliar
 							}
-							root.Right = percorre.Right
-							root.Parent = nil
 						} else {
 							root = root.Right
+							root.Parent = nil
 						}
 					} else {
 						root = root.Left
+						root.Parent = nil
 					}
 					return root
 				}
