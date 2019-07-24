@@ -12,7 +12,7 @@ func Level(root *TreeNode, nivel int, f func(...interface{}) (int, error)) {
 		return
 	}
 	if nivel == 1 {
-		f(root.Data)
+		f(root)
 	} else {
 		Level(root.Left, nivel-1, f)
 		Level(root.Right, nivel-1, f)
