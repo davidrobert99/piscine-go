@@ -1,6 +1,5 @@
 package piscine
 
-/*
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
@@ -21,11 +20,12 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 									auxiliar = auxiliar.Right
 								}
 								auxiliar.Right = auxiliarApagar.Right
+								auxiliar.Right.Parent = auxiliar
 							}
 
 						} else {
 							percorre.Left = percorre.Left.Right
-							percorre.Left.Right.Parent = percorre.Left//////////////////////////////
+							percorre.Left.Right.Parent = percorre.Left //////////////////////////////
 						}
 						auxiliarApagar = nil
 					} else { // se é o no da direita para apagar
@@ -39,6 +39,7 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 									auxiliar = auxiliar.Right
 								}
 								auxiliar.Right = auxiliarApagar.Right
+								auxiliar.Right.Parent = auxiliar
 							}
 						} else {
 							percorre.Right = percorre.Right.Right
@@ -76,17 +77,18 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	}
 	return root
 }
-*/
+
+/*
 
 func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
-	} else {
+	} else { //fazer caso
 		percorre := root
 		for percorre != nil {
 			if percorre.Data == node.Data {
 				if percorre.Left != nil {
-					if percorre.Right != nil {
+					if percorre.Right == nil {
 						if percorre.Parent.Right.Data == percorre.Data {
 							percorre = percorre.Parent
 							percorre.Right = percorre.Right.Left
@@ -131,4 +133,4 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 		}
 	}
 	return root
-}
+}*/
