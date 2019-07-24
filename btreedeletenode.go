@@ -14,13 +14,14 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						if percorre.Left.Left != nil {
 							percorre.Left = percorre.Left.Left
 							auxiliar := percorre.Left
+							auxiliar.Parent = percorre
 							if auxiliar.Right != nil && auxiliarApagar.Right != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
 								auxiliar.Right = auxiliarApagar.Right
-								auxiliar.Right.Parent = auxiliar
 							}
+
 						} else {
 							percorre.Left = percorre.Left.Right
 						}
@@ -30,12 +31,12 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 						if percorre.Right.Left != nil {
 							percorre.Right = percorre.Right.Left
 							auxiliar := percorre.Right
+							auxiliar.Parent = percorre
 							if auxiliar.Right != nil && auxiliarApagar.Right != nil {
 								for auxiliar.Right != nil {
 									auxiliar = auxiliar.Right
 								}
-								auxiliar = auxiliarApagar.Right
-								auxiliar.Right.Parent = auxiliar
+								auxiliar.Right = auxiliarApagar.Right
 							}
 						} else {
 							percorre.Right = percorre.Right.Right
