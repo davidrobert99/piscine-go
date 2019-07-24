@@ -27,6 +27,8 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							if percorre.Left.Right != nil {
 								percorre.Left = percorre.Left.Right
 								percorre.Left.Parent = percorre //////////////////////////////
+							} else {
+								percorre.Left = nil
 							}
 						}
 						auxiliarApagar = nil
@@ -47,6 +49,8 @@ func BTreeDeleteNode(root, node *TreeNode) *TreeNode {
 							if percorre.Right.Right != nil {
 								percorre.Right = percorre.Right.Right
 								percorre.Right.Parent = percorre
+							} else {
+								percorre.Left = nil
 							}
 						}
 						auxiliarApagar = nil
