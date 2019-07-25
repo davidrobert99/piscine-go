@@ -1,5 +1,7 @@
 package main
 
+/*package main
+
 import (
 	"bufio"
 	"fmt"
@@ -10,61 +12,61 @@ import (
 )
 
 func main() {
-	package main
+	package main*/
 
 import (
-    "bufio"
-    "fmt"
-    "io"
-    "os"
+	"bufio"
+	"fmt"
+	"io"
+	"os"
 )
 
 func main() {
-    reader := bufio.NewReader(os.Stdin)
-    var output []rune
-    for {
-        input, _, err := reader.ReadRune()
-        if err != nil && err == io.EOF {
-            break
-        }
-        output = append(output, input)
-    }
-    linha := 0
-    coluna := 0
-    variavel := true
-    for i := range output {
-        if output[i] != 10 && variavel {
-            coluna++
+	reader := bufio.NewReader(os.Stdin)
+	var output []rune
+	for {
+		input, _, err := reader.ReadRune()
+		if err != nil && err == io.EOF {
+			break
+		}
+		output = append(output, input)
+	}
+	linha := 0
+	coluna := 0
+	variavel := true
+	for i := range output {
+		if output[i] != 10 && variavel {
+			coluna++
 
-        } else {
-            variavel = false
-            if output[i] == 10 {
-                linha++
-            }
-        }
-    }
-    if linha > 0 && coluna > 0 {
-        barra := false
-        fmt.Printf("[raid1a] [%v] [%v]", coluna, linha)
-        barra = true
-        fmt.Print(" || ")
-        fmt.Printf("[raid1b] [%v] [%v]", coluna, linha)
-        barra = true
-        fmt.Print(" || ")
-        fmt.Printf("[raid1c] [%v] [%v]", coluna, linha)
-        barra = true
-        fmt.Print(" || ")
-        fmt.Printf("[raid1d] [%v] [%v]", coluna, linha)
-        barra = true
-        fmt.Print(" || ")
-        fmt.Printf("[raid1e] [%v] [%v]", coluna, linha)
-        barra = true
-        if !barra {
-            fmt.Print("Not a Raid function")
-        }
-        fmt.Print("\n")
-    }
-}/*
+		} else {
+			variavel = false
+			if output[i] == 10 {
+				linha++
+			}
+		}
+	}
+	if linha > 0 && coluna > 0 {
+		barra := false
+		fmt.Printf("[raid1a] [%v] [%v]", coluna, linha)
+		barra = true
+		fmt.Print(" || ")
+		fmt.Printf("[raid1b] [%v] [%v]", coluna, linha)
+		barra = true
+		fmt.Print(" || ")
+		fmt.Printf("[raid1c] [%v] [%v]", coluna, linha)
+		barra = true
+		fmt.Print(" || ")
+		fmt.Printf("[raid1d] [%v] [%v]", coluna, linha)
+		barra = true
+		fmt.Print(" || ")
+		fmt.Printf("[raid1e] [%v] [%v]", coluna, linha)
+		barra = true
+		if !barra {
+			fmt.Print("Not a Raid function")
+		}
+		fmt.Print("\n")
+	}
+} /*
 	reader := bufio.NewReader(os.Stdin)
 	var output []rune
 	for {
