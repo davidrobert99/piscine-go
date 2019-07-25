@@ -41,28 +41,28 @@ func main() {
 	}
 	if string(dados1) == string(b) {
 		if barra {
-			fmt.Print(" | ")
+			fmt.Print(" || ")
 		}
 		fmt.Printf("[raid1b] [%v] [%v]", coluna, linha)
 		barra = true
 	}
 	if string(dados2) == string(b) {
 		if barra {
-			fmt.Print(" | ")
+			fmt.Print(" || ")
 		}
 		fmt.Printf("[raid1c] [%v] [%v]", coluna, linha)
 		barra = true
 	}
 	if string(dados3) == string(b) {
 		if barra {
-			fmt.Print(" | ")
+			fmt.Print(" || ")
 		}
 		fmt.Printf("[raid1d] [%v] [%v]", coluna, linha)
 		barra = true
 	}
 	if string(dados4) == string(b) {
 		if barra {
-			fmt.Print(" | ")
+			fmt.Print(" || ")
 		}
 		fmt.Printf("[raid1e] [%v] [%v]", coluna, linha)
 		barra = true
