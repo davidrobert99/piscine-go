@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
+	"strconv"
 )
 
-/*
 func main() {
 	b, _ := ioutil.ReadAll(os.Stdin)
 	linha := 0
@@ -23,36 +24,61 @@ func main() {
 			}
 		}
 	}
-	pr, pw := io.Pipe()
-	defer pw.Close()
-
-	// tell the command to write to our pipe
-	cmd := exec.Command("cat", "fruit.txt")
-	cmd.Stdout = pw
-
-	cmd = exec.Command("ls", "-lah")
-	out, err := cmd.CombinedOutput()
-	if err != nil {
-		log.Fatalf("cmd.Run() failed with %s\n", err)
+	cmd0 := exec.Command("./raid1a", strconv.Itoa(coluna), strconv.Itoa(linha))
+	cmd1 := exec.Command("./raid1b", strconv.Itoa(coluna), strconv.Itoa(linha))
+	cmd2 := exec.Command("./raid1c", strconv.Itoa(coluna), strconv.Itoa(linha))
+	cmd3 := exec.Command("./raid1d", strconv.Itoa(coluna), strconv.Itoa(linha))
+	cmd4 := exec.Command("./raid1e", strconv.Itoa(coluna), strconv.Itoa(linha))
+	dados0, _ := cmd0.Output()
+	dados1, _ := cmd1.Output()
+	dados2, _ := cmd2.Output()
+	dados3, _ := cmd3.Output()
+	dados4, _ := cmd4.Output()
+	barra := false
+	if string(dados0) == string(b) {
+		fmt.Printf("[raid1a] [%v] [%v]", coluna, linha)
+		barra = true
 	}
-	fmt.Printf("combined out:\n%s\n", string(out))
-
-	go func() {
-		defer pr.Close()
-		// copy the data written to the PipeReader via the cmd to stdout
-		if _, err := io.Copy(os.Stdout, pr); err != nil {
-			log.Fatal(err)
+	if string(dados1) == string(b) {
+		if barra {
+			fmt.Print(" | ")
 		}
-	}()
+		fmt.Printf("[raid1b] [%v] [%v]", coluna, linha)
+		barra = true
+	}
+	if string(dados2) == string(b) {
+		if barra {
+			fmt.Print(" | ")
+		}
+		fmt.Printf("[raid1c] [%v] [%v]", coluna, linha)
+		barra = true
+	}
+	if string(dados3) == string(b) {
+		if barra {
+			fmt.Print(" | ")
+		}
+		fmt.Printf("[raid1d] [%v] [%v]", coluna, linha)
+		barra = true
+	}
+	if string(dados4) == string(b) {
+		if barra {
+			fmt.Print(" | ")
+		}
+		fmt.Printf("[raid1e] [%v] [%v]", coluna, linha)
+		barra = true
+	}
+	fmt.Print("\n")
+}
 
-	// run the command, which writes all output to the PipeWriter
-	// which then ends up in the PipeReader
-	if err := cmd.Run(); err != nil {
+/*func ExampleCmd_Output() {
+	out, err := exec.Command("./raid1a", "2", "2").Output()
+	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("The date is %s\n", out)
+}
 
-} */
-
+/*
 func main() {
 	b, _ := ioutil.ReadAll(os.Stdin)
 	linha := 0
@@ -93,7 +119,7 @@ func main() {
 			}
 		}
 	}
-	//argumentos := os.Args
+		//argumentos := os.Args
 	/*
 		pr, pw := io.Pipe()
 		defer pw.Close()
@@ -116,6 +142,6 @@ func main() {
 		if err := cmd.Run(); err != nil {
 			log.Fatal(err)
 		}
-	*/
 
-}
+
+} */
