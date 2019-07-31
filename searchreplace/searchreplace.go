@@ -9,7 +9,9 @@ import (
 func main() {
 	arguments := os.Args
 	if len(arguments) == 4 {
-		resposta := Split(arguments[1], string(arguments[2][0]), string(arguments[3][0]))
+		aux1 := []rune(arguments[2])
+		aux2 := []rune(arguments[3])
+		resposta := Split(arguments[1], string(aux1[0]), string(aux2[0]))
 		fmt.Println(resposta)
 	} else {
 		fmt.Println("")
