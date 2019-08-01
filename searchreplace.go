@@ -1,5 +1,5 @@
 package piscine
-
+/*
 import (
 	"fmt"
 	"os"
@@ -17,4 +17,4 @@ func Searchreplace() {
 	} else {
 		fmt.Println("")
 	}
-}
+}*/
